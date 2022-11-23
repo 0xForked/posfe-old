@@ -12,15 +12,14 @@ import BaseButtons from "@/components/BaseButtons.vue";
 import LayoutGuest from "@/layouts/LayoutGuest.vue";
 
 const form = reactive({
-  login: "john.doe",
-  pass: "highly-secure-password-fYjUw-",
-  remember: true,
+  login: "",
+  pass: "",
 });
 
 const router = useRouter();
 
 const submit = () => {
-  router.push("/dashboard");
+  router.push("/home");
 };
 </script>
 
@@ -28,16 +27,22 @@ const submit = () => {
   <LayoutGuest>
     <SectionFullScreen v-slot="{ cardClass }" bg="purplePink">
       <CardBox :class="cardClass" is-form @submit.prevent="submit">
-        <FormField label="Login" help="Please enter your login">
+        <div class="mb-8">
+          <h1 class="text-xl font-semibold">Welcome Back</h1>
+          <p class="text-md font-light">Please sign in to continue!</p>
+        </div>
+
+        <FormField label="Username" help="Please enter your login username">
           <FormControl
             v-model="form.login"
             :icon="mdiAccount"
-            name="login"
+            name="username"
+            placeholder="@tukirmin"
             autocomplete="username"
           />
         </FormField>
 
-        <FormField label="Password" help="Please enter your password">
+        <!-- <FormField label="Password" help="Please enter your password">
           <FormControl
             v-model="form.pass"
             :icon="mdiAsterisk"
@@ -45,21 +50,21 @@ const submit = () => {
             name="password"
             autocomplete="current-password"
           />
-        </FormField>
+        </FormField> -->
 
-        <FormCheckRadio
+        <!-- <FormCheckRadio
           v-model="form.remember"
           name="remember"
           label="Remember"
           :input-value="true"
-        />
+        /> -->
 
-        <template #footer>
+        <!-- <template #footer>
           <BaseButtons>
             <BaseButton type="submit" color="info" label="Login" />
             <BaseButton to="/dashboard" color="info" outline label="Back" />
           </BaseButtons>
-        </template>
+        </template> -->
       </CardBox>
     </SectionFullScreen>
   </LayoutGuest>

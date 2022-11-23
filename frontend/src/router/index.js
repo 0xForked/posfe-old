@@ -1,78 +1,55 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Style from "@/views/StyleView.vue";
+import Loader from "@/Views/LoaderView.vue";
 import Home from "@/views/HomeView.vue";
+import DashboardSales from "@/views/dashboard/SalesView.vue";
+import DashboardProduct from "@/views/dashboard/ProductsView.vue";
+import DashboardCustomer from "@/views/dashboard/CustomersView.vue";
 
 const routes = [
   {
-    meta: {
-      title: "Select style",
-    },
     path: "/",
-    name: "style",
-    component: Style,
+    name: "loader",
+    component: Loader,
+    meta: { title: "Loader", guest: true },
   },
   {
-    // Document title tag
-    // We combine it with defaultDocumentTitle set in `src/main.js` on router.afterEach hook
-    meta: {
-      title: "Dashboard",
-    },
-    path: "/dashboard",
-    name: "dashboard",
+    meta: { title: "home", requireAuth: true },
+    path: "/home",
+    name: "home",
     component: Home,
   },
   {
-    meta: {
-      title: "Tables",
-    },
+    meta: { title: "Dashboard sales", requireAuth: true },
+    path: "/dashboard/sales",
+    name: "dashboard.sales",
+    component: DashboardSales,
+  },
+  {
+    meta: { title: "Dashboard products", requireAuth: true },
+    path: "/dashboard/products",
+    name: "dashboard.products",
+    component: DashboardProduct,
+  },
+  {
+    meta: { title: "Dashboard customers", requireAuth: true },
+    path: "/dashboard/customers",
+    name: "dashboard.customers",
+    component: DashboardCustomer,
+  },
+  {
+    meta: { title: "Tables", requireAuth: true },
     path: "/tables",
     name: "tables",
     component: () => import("@/views/TablesView.vue"),
   },
   {
-    meta: {
-      title: "Forms",
-    },
-    path: "/forms",
-    name: "forms",
-    component: () => import("@/views/FormsView.vue"),
-  },
-  {
-    meta: {
-      title: "Profile",
-    },
-    path: "/profile",
-    name: "profile",
-    component: () => import("@/views/ProfileView.vue"),
-  },
-  {
-    meta: {
-      title: "Ui",
-    },
-    path: "/ui",
-    name: "ui",
-    component: () => import("@/views/UiView.vue"),
-  },
-  {
-    meta: {
-      title: "Responsive layout",
-    },
-    path: "/responsive",
-    name: "responsive",
-    component: () => import("@/views/ResponsiveView.vue"),
-  },
-  {
-    meta: {
-      title: "Login",
-    },
+    meta: { title: "Login", guest: true },
     path: "/login",
     name: "login",
     component: () => import("@/views/LoginView.vue"),
   },
   {
-    meta: {
-      title: "Error",
-    },
+    meta: { title: "Error", guest: true  },
     path: "/error",
     name: "error",
     component: () => import("@/views/ErrorView.vue"),
@@ -88,3 +65,38 @@ const router = createRouter({
 });
 
 export default router;
+
+
+
+// {
+//   meta: {
+//     title: "Forms",
+//   },
+//   path: "/forms",
+//   name: "forms",
+//   component: () => import("@/views/FormsView.vue"),
+// },
+// {
+//   meta: {
+//     title: "Profile",
+//   },
+//   path: "/profile",
+//   name: "profile",
+//   component: () => import("@/views/ProfileView.vue"),
+// },
+// {
+//   meta: {
+//     title: "Ui",
+//   },
+//   path: "/ui",
+//   name: "ui",
+//   component: () => import("@/views/UiView.vue"),
+// },
+// {
+//   meta: {
+//     title: "Responsive layout",
+//   },
+//   path: "/responsive",
+//   name: "responsive",
+//   component: () => import("@/views/ResponsiveView.vue"),
+// },
