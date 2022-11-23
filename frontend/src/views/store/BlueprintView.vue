@@ -5,7 +5,7 @@ import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
 <template>
    <LayoutAuthenticated>
     <SectionMain>
-      Role
+      Store Blueprint 2 Side Panel
     </SectionMain>
   </LayoutAuthenticated>
 </template>

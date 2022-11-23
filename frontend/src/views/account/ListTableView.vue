@@ -5,7 +5,7 @@ import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
 <template>
    <LayoutAuthenticated>
     <SectionMain>
-      User
+      User List Table View
     </SectionMain>
   </LayoutAuthenticated>
 </template>
