@@ -7,11 +7,11 @@ import menuNavBar from "@/menuNavBar.js";
 import { useMainStore } from "@/stores/main.js";
 import { useStyleStore } from "@/stores/style.js";
 import BaseIcon from "@/components/BaseIcon.vue";
-import FormControl from "@/components/FormControl.vue";
 import NavBar from "@/components/NavBar.vue";
 import NavBarItemPlain from "@/components/NavBarItemPlain.vue";
 import AsideMenu from "@/components/AsideMenu.vue";
 import FooterBar from "@/components/FooterBar.vue";
+import ToolBar from "@/components/ToolBar.vue";
 
 useMainStore().setUser({
   name: "John Doe",
@@ -19,6 +19,8 @@ useMainStore().setUser({
   avatar:
     "https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93",
 });
+
+const isAdmin = false;
 
 const layoutAsidePadding = "xl:pl-60";
 
@@ -53,6 +55,7 @@ const menuClick = (event, item) => {
     }"
   >
     <div
+      v-if="isAdmin"
       :class="[layoutAsidePadding, { 'ml-60 lg:ml-0': isAsideMobileExpanded }]"
       class="pt-14 min-h-screen w-screen transition-position lg:w-auto bg-gray-50 dark:bg-slate-800 dark:text-slate-100"
     >
@@ -91,6 +94,14 @@ const menuClick = (event, item) => {
       <FooterBar>
         <b>BAJUAL™</b> a <i>Point of Sales</i> Product by <b>BAKODE.ID</b>.
       </FooterBar>
+    </div>
+
+    <div
+      v-else
+      class="min-h-screen w-screen transition-position lg:w-auto bg-gray-50 dark:bg-slate-800 dark:text-slate-100"
+    >
+      <ToolBar />
+      <slot />
     </div>
   </div>
 </template>
