@@ -20,7 +20,7 @@ useMainStore().setUser({
     "https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93",
 });
 
-const isAdmin = false;
+const isAdmin = true;
 
 const layoutAsidePadding = "xl:pl-60";
 
